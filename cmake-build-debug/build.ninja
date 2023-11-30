@@ -67,6 +67,18 @@ build CMakeFiles/C_Project_L2.dir/level_lists.c.obj: C_COMPILER__C_Project_L2_un
   OBJECT_DIR = CMakeFiles\C_Project_L2.dir
   OBJECT_FILE_DIR = CMakeFiles\C_Project_L2.dir
 
+build CMakeFiles/C_Project_L2.dir/search.c.obj: C_COMPILER__C_Project_L2_unscanned_Debug C$:/Users/hisla/CLionProjects/C-Project-L2/search.c || cmake_object_order_depends_target_C_Project_L2
+  DEP_FILE = CMakeFiles\C_Project_L2.dir\search.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\C_Project_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\C_Project_L2.dir
+
+build CMakeFiles/C_Project_L2.dir/timer.c.obj: C_COMPILER__C_Project_L2_unscanned_Debug C$:/Users/hisla/CLionProjects/C-Project-L2/timer.c || cmake_object_order_depends_target_C_Project_L2
+  DEP_FILE = CMakeFiles\C_Project_L2.dir\timer.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\C_Project_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\C_Project_L2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target C_Project_L2
@@ -75,7 +87,7 @@ build CMakeFiles/C_Project_L2.dir/level_lists.c.obj: C_COMPILER__C_Project_L2_un
 #############################################
 # Link the executable C_Project_L2.exe
 
-build C_Project_L2.exe: C_EXECUTABLE_LINKER__C_Project_L2_Debug CMakeFiles/C_Project_L2.dir/main.c.obj CMakeFiles/C_Project_L2.dir/level_cells.c.obj CMakeFiles/C_Project_L2.dir/level_lists.c.obj
+build C_Project_L2.exe: C_EXECUTABLE_LINKER__C_Project_L2_Debug CMakeFiles/C_Project_L2.dir/main.c.obj CMakeFiles/C_Project_L2.dir/level_cells.c.obj CMakeFiles/C_Project_L2.dir/level_lists.c.obj CMakeFiles/C_Project_L2.dir/search.c.obj CMakeFiles/C_Project_L2.dir/timer.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\C_Project_L2.dir

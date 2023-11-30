@@ -4,35 +4,68 @@
 
 #include "level_lists.h"
 
-t_d_list * emptyLevelList(int nbLevel){
-    t_d_list * list = (t_d_list *) malloc(sizeof(t_d_list));
-    t_d_cell** head = (t_d_cell **) malloc(sizeof(t_d_cell *) * nbLevel);
+t_d_list * createEmptyList(int levels){
 
-    for(int i=0; i<nbLevel; i++){
-        head[i] = NULL;
+    t_d_list *newlist = (t_d_list*) malloc(sizeof(t_d_list));
+
+    newlist->height = levels;
+    newlist->heads = (t_d_cell**) malloc(sizeof(t_d_cell*) * levels);
+
+    for(int i = 0; i<levels; i++){
+        newlist->heads[i] = NULL;
     }
 
-    list->heads = head;
-    return list;
-}
-
-void insertCellatHead(t_d_cell * cell, t_d_list * list){
-
-    // For all the levels in the cell insert at the head
-    for(int i=1; i<(list->height - 1); i++){
-        list->heads[i] = list->heads[i+1];
-    }
-    list->heads[0] = cell;
+    return newlist;
 
 }
 
-void displayListForLevel(t_d_list * list, int level){
-    int cell = 0;
-    t_d_cell *tmp;
-    tmp = list->heads[level];
-    while(tmp != NULL){
-        printf("Level : %d, Cell : %d, Value : %d", level, cell, tmp->value);
-        tmp = tmp->nexts[cell++];
+void insertCell(t_d_list * list, t_d_cell * cell){
+
+    for(int i = 0; i<cell->nblevel; i++){
+        t_d_cell *memcell = list->heads[i];
+        list->heads[i] = cell;
+        cell->next[i] = memcell;
+    }
+
+}
+
+void displayForLevel(t_d_list * list, int level){
+
+    t_d_cell * displaycell = list->heads[level];
+    printf("[list head_%d @-]-->", level);
+    while (displaycell != NULL){
+        printf("[ %d|@-]-->", displaycell->value);
+        displaycell = displaycell->next[level];
+    }
+    printf("NULL\n");
+}
+
+void displayAllLevels(t_d_list * list){
+
+    for(int i = 0; i<list->height; i++){
+        displayForLevel(list, i);
+    }
+
+}
+
+void insertCellSorted(t_d_list * list, t_d_cell * cell){
+
+    for(int i = 0; i<cell->nblevel; i++){
+
+        t_d_cell * memory = list->heads[i];
+        t_d_cell * previous = NULL;
+
+        while(memory != NULL && memory->value < cell->value){
+            previous = memory;
+            memory = memory->next[i];
+        }
+        if(previous == NULL){
+            list->heads[i] = cell;
+        } else {
+            previous->next[i] = cell;
+        }
+        cell->next[i] = memory;
+
     }
 
 }

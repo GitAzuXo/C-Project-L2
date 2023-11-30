@@ -7,10 +7,11 @@
 
 typedef struct s_d_cell{
     int value;
-    struct s_d_cell **nexts;
+    int nblevel;
+    struct s_d_cell **next;
 }t_d_cell;
 
-t_d_cell * CreateCell(int value, int maxheight);
+t_d_cell * createCell(int value, int levels);
 
 
 #endif //C_PROJECT_L2_LEVEL_CELLS_H

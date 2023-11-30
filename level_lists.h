@@ -6,6 +6,8 @@
 #define C_PROJECT_L2_LEVEL_LISTS_H
 
 #include "level_cells.h"
+#include "search.h"
+#include "timer.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -14,6 +16,10 @@ typedef struct s_d_list{
     int height;
 }t_d_list;
 
-t_d_list * emptyLevelList(int nbLevel);
+t_d_list * createEmptyList(int levels);
+void insertCell(t_d_list * list, t_d_cell * cell);
+void displayForLevel(t_d_list * list, int level);
+void displayAllLevels(t_d_list * list);
+void insertCellSorted(t_d_list * list, t_d_cell * cell);
 
 #endif //C_PROJECT_L2_LEVEL_LISTS_H

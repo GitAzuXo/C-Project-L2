@@ -7,4 +7,7 @@ add_executable(C_Project_L2 main.c
         level_cells.c
         level_cells.h
         level_lists.c
-        level_lists.h)
+        level_lists.h
+        search.c
+        search.h
+        timer.c)
