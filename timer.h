@@ -4,7 +4,6 @@
 
 #ifndef UNTITLED1_TIMER_H
 #define UNTITLED1_TIMER_H
-
 #include <time.h>
 
 // timer structure

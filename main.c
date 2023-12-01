@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "level_lists.h"
 
 int main() {
@@ -16,14 +15,8 @@ int main() {
     printf("--- Affichage de tous les levels ---\n\n");
     displayAllLevels(list); **/
 
-    t_d_list * list = createEmptyList(5);
-    t_d_cell * cell = createCell(4, 3);
-    t_d_cell * cellbis = createCell(87, 5);
-    t_d_cell * cell3 = createCell(32, 5);
+    t_d_list * list = createListToSearch(100000);
 
-    insertCell(list, cell);
-    insertCellSorted(list, cellbis);
-    displayAllLevels(list);
 
     return 0;
 }
