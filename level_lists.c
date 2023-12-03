@@ -113,29 +113,22 @@ void insertCellSorted(t_d_list * list, t_d_cell * cell){
 
 int classicSearch(t_d_list * list, int value){
 
-    startTimer();
-
     if(list->heads == NULL) {return 0;}
 
     t_d_cell * memory = list->heads[0];
 
     while(memory != NULL){
         if(memory->value == value){
-            stopTimer();
-            displayTime();
             return 1;
         }
         memory = memory->next[0];
     }
-    stopTimer();
-    displayTime();
     return 0;
 
 }
 
 int searchByLevel(t_d_list * list, int value){
 
-    startTimer();
 
     if(list->heads[0] == NULL) {return 0;}
 
@@ -144,13 +137,9 @@ int searchByLevel(t_d_list * list, int value){
     for(int i = list->height - 1; i >= 0; i--){
         while(memory->next[i] != NULL && memory->next[i]->value < value){memory = memory->next[i];}
         if(memory->next[i] != NULL && memory->next[i]->value == value){
-            stopTimer();
-            displayTime();
             return 1;
         }
     }
-    stopTimer();
-    displayTime();
     return 0;
 }
 
