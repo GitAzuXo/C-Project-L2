@@ -1,4 +1,5 @@
 #include "level_lists.h"
+#include "timer.h"
 
 int main() {
 
@@ -15,8 +16,33 @@ int main() {
     printf("--- Affichage de tous les levels ---\n\n");
     displayAllLevels(list); **/
 
-    t_d_list * list = createListToSearch(100000);
+    FILE *log_file = fopen("../log.txt", "w");
+    char format[] = "%d\t%s\t%s\n";
+    int level;
+    char *time_lvl0;
+    char *time_all_levels;
 
-
+    srand( time( NULL ) );
+    for(int j = 1; j<=64; j*=2) {
+        int maxval = 1000 * j;
+        t_d_list *list = createListToSearch(maxval);
+        startTimer();
+        for (int i = 0; i <= 10000; i++) {
+            classicSearch(list, rand() % maxval + 1);
+        }
+        stopTimer();
+        displayTime();
+        time_lvl0 = getTimeAsString();
+        startTimer();
+        for (int i = 0; i <= 10000; i++) {
+            int tosearch = rand() % 1001;
+            searchByLevel(list, tosearch);
+        }
+        stopTimer();
+        displayTime();
+        time_all_levels = getTimeAsString();
+        fprintf(log_file,format,maxval,time_lvl0,time_all_levels);
+    }
+    fclose(log_file);
     return 0;
 }
