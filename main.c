@@ -1,7 +1,19 @@
 #include "level_lists.h"
 #include "timer.h"
+#include "contactlist.h"
+#include "names.h"
+#include "appointments.h"
 
 int main() {
+
+    char* prenom = "Louis";
+    char* nom = "Hislaire";
+    t_contact * contact = createContact(prenom,nom,4);
+    t_d_contactlist * list = createEmptyContactList(4);
+
+    insertContactSorted(list, contact);
+    displayContactsAllLevels(list);
+    return 0;
 
     /** Code pour le showcase de la partie 1
     t_d_list * list = createEmptyList(5);
@@ -16,6 +28,7 @@ int main() {
     printf("--- Affichage de tous les levels ---\n\n");
     displayAllLevels(list); **/
 
+    /** Code pour la démonstration du temps partie 2
     FILE *log_file = fopen("../log.txt", "w");
     char format[] = "%d\t%s\t%s\n";
     int level;
@@ -44,5 +57,5 @@ int main() {
         fprintf(log_file,format,maxval,time_lvl0,time_all_levels);
     }
     fclose(log_file);
-    return 0;
+    return 0; **/
 }
