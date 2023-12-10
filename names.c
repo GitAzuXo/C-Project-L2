@@ -4,15 +4,7 @@
 
 #include "names.h"
 
-void toLowerCase(char *string){
-    for(int i = 0; string[i] != '\0'; i++){
-        string[i] = tolower(string[i]);
-    }
-}
-
 t_contact * createContact(char* fn, char* ln, int nbLevels){
-    toLowerCase(fn);
-    toLowerCase(ln);
     size_t size = strlen(fn) + strlen(ln) + strlen("_") + 1;
     char fullname[size];
     strcpy(fullname, ln);

@@ -21,6 +21,5 @@ typedef struct s_contact{
 }t_contact;
 
 t_contact * createContact(char* fn, char* ln, int nbLevels);
-void toLowerCase(char *string);
 
 #endif //C_PROJECT_L2_NAMES_H

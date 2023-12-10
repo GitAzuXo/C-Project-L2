@@ -6,9 +6,7 @@
 
 int main() {
 
-    char* prenom = "Louis";
-    char* nom = "Hislaire";
-    t_contact * contact = createContact(prenom,nom,4);
+    t_contact * contact = createContact("louis","hislaire",4);
     t_d_contactlist * list = createEmptyContactList(4);
 
     insertContactSorted(list, contact);
